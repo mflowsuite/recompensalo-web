@@ -60,7 +60,7 @@ Lo que hace al recibir un pedido:
 4. **Guarda** en `c:<9999999999999 - timestamp>-<rand>`. La clave va invertida
    para que la lista de KV salga con el pedido más nuevo primero.
 5. **Mail (opcional)**: si existen los secretos `RESEND_API_KEY` y `AVISO_A`,
-   manda un mail por Resend desde `Recompensalo <hola@mail.mflowsuite.com>`,
+   manda un mail por Resend desde `Recompensalo <hola@mflowsuite.com>`,
    con reply-to al mail de quien escribió. Si el mail falla, el pedido igual
    queda guardado.
 
@@ -143,15 +143,17 @@ contesta 403 (código 1010).
    cambiar `URL_CONTACTO` por la del Worker nuevo.
 4. Probar como se describe arriba y borrar los datos de prueba.
 
-## Lo que falta: el mail por cada pedido
+## El mail por cada pedido (encendido el 2-oct-2026)
 
-El código ya está. Falta cargar dos secretos en el Worker:
+Cada pedido llega además por mail a **mflowsuite@gmail.com** (binding de texto
+`AVISO_A`). Sale por Resend desde `hola@mflowsuite.com`, con la cuenta del
+equipo «mflowsuite» de Resend, que es la que tiene verificado `mflowsuite.com`.
+Ojo: NO es la misma cuenta que usa el chatbot de Guzel, que manda desde
+`mail.mflowsuite.com`.
 
-- `RESEND_API_KEY`: la clave de Resend. Es la misma que usa el chatbot de
-  Guzel y tiene que ser **Full access**.
-- `AVISO_A`: a quién mandarlo. Si son varias direcciones, van separadas por
-  coma.
-
-Se cargan republicando con esos dos como `secret_text` en `bindings` (paso 3),
-o desde el panel de Cloudflare: Workers → recompensalo-contacto → Settings →
-Variables.
+- La clave es `RESEND_API_KEY` en `credenciales.env`. Es de tipo «Sending access»
+  y solo sirve para mandar desde ese dominio.
+- Al republicar un Worker hay que mandar los cuatro bindings: `CONTACTOS`,
+  `ADMIN_TOKEN`, `RESEND_API_KEY` y `AVISO_A`. Si falta uno, el `PUT` lo borra.
+- Si el mail falla, el pedido queda guardado igual y en el log del Worker
+  aparece `contacto.aviso.error`.

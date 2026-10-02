@@ -20,7 +20,7 @@
  */
 
 const ORIGENES = ["https://recompensalo.com", "https://www.recompensalo.com"];
-const REMITENTE = "Recompensalo <hola@mail.mflowsuite.com>";
+const REMITENTE = "Recompensalo <hola@mflowsuite.com>";
 
 export default {
   async fetch(request, env) {
