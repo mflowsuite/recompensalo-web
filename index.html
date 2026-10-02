@@ -327,11 +327,140 @@
     .nav a:not(.btn) { display: none; }
     .nav .btn { width: auto; }
   }
+
+  /* ---- Para quién es: rubros que se tocan ---- */
+  .rubros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+  .familia { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .familia h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font: 500 14px/1.2 "Fira Sans", sans-serif; color: var(--ink2); background: var(--bg); border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 12px; cursor: pointer; transition: border-color .2s ease, background-color .2s ease, color .2s ease; }
+  .chip:hover { border-color: var(--blue); color: var(--ink); }
+  .chip:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  .chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .no-va { margin-top: 18px; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; align-items: baseline; padding: 16px 20px; border-radius: 14px; border: 1px dashed #d6cfc4; color: var(--ink2); font-size: 15px; }
+  .no-va b { color: var(--ink); }
+
+  /* ---- Lo que se pierde: la calculadora ---- */
+  .perdes-cierre { margin-top: 14px; font-weight: 600; color: var(--ink); }
+  .calc { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: grid; gap: 16px; }
+  .calc h3 { font-size: 19px; font-weight: 800; }
+  .calc-campo { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; font-size: 15px; color: var(--ink2); }
+  .calc-campo output { font: 800 17px/1 "Manrope", sans-serif; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .calc-campo input { grid-column: 1 / -1; width: 100%; accent-color: var(--coral); cursor: pointer; }
+  .calc-res { border-top: 1px dashed var(--line); padding-top: 16px; color: var(--ink2); }
+  .calc-res b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .calc-grande { margin-top: 8px; display: grid; gap: 4px; }
+  .calc-grande strong { font: 800 clamp(30px, 4.4vw, 42px)/1.05 "Manrope", sans-serif; color: #c2410c; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .calc small { color: var(--muted); font-size: 13px; }
+
+  /* ---- El simulador de programas ---- */
+  .sim { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 32px; }
+  .sim-tabs { display: grid; gap: 10px; }
+  .sim-tab { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; text-align: left; background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 16px; cursor: pointer; font: inherit; color: inherit; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  .sim-tab:hover { border-color: #c9d8fb; }
+  .sim-tab:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+  .sim-tab .pi { margin: 0; }
+  .sim-tab b { display: block; font: 800 17px/1.2 "Manrope", sans-serif; }
+  .sim-tab small { display: block; color: var(--ink2); font-size: 14px; margin-top: 2px; }
+  .sim-tab[aria-selected="true"] { border-color: var(--blue); background: var(--soft-blue); box-shadow: 0 8px 20px rgba(37, 99, 235, .12); }
+  .sim-tab[aria-selected="true"] .pi { background: var(--blue); color: #fff; }
+
+  .sim-escena { display: grid; justify-items: center; gap: 16px; }
+  .sim-tel { position: relative; width: 300px; max-width: 100%; background: #111827; border-radius: 42px; padding: 12px; box-shadow: 0 30px 60px rgba(15, 23, 42, .18); perspective: 900px; }
+  .sim-tel::before { content: ""; position: absolute; inset: 12px; border-radius: 32px; background: #f2f2f7; }
+  .sim-tel > * { position: relative; }
+  .sim-tel .titulo-wallet { padding: 46px 18px 10px; font: 700 22px/1 "Manrope", sans-serif; color: #111827; }
+  .sim-card { margin: 0 12px 16px; min-height: 300px; border-radius: 18px; padding: 16px; background: var(--marca-bg); color: var(--marca-ink); box-shadow: 0 10px 24px rgba(0, 0, 0, .1); overflow: hidden; transform-style: preserve-3d; transition: transform .25s ease, background-color .6s ease, color .6s ease; }
+  .sim-cab { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .sim-marca { display: inline-flex; align-items: center; gap: 6px; font: 800 13px/1.2 "Manrope", sans-serif; letter-spacing: .02em; }
+  .sim-marca svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .sim-cab small { font-size: 10px; opacity: .75; text-align: right; line-height: 1.2; max-width: 70px; }
+  .sim-valor { font: 800 34px/1.1 "Manrope", sans-serif; font-variant-numeric: tabular-nums; }
+  .sim-vis { margin: 12px 0 10px; min-height: 92px; }
+  .sim-falta { font-size: 13px; font-weight: 600; min-height: 36px; }
+
+  /* sellos */
+  .s-grilla { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .s-sello { aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; border: 2px dashed rgba(107, 58, 31, .3); }
+  .s-sello svg { width: 60%; height: 60%; opacity: 0; }
+  .s-sello.lleno { background: #fff; border: 2px solid transparent; box-shadow: 0 3px 8px rgba(107, 58, 31, .15); }
+  .s-sello.lleno svg { opacity: 1; }
+  .s-sello.regalo { background: var(--coral); color: #fff; }
+  .s-sello.premio { border-color: var(--coral); }
+  .s-sello.premio::after { content: "★"; color: var(--coral); font-size: 18px; }
+  .s-sello.premio.lleno::after { content: none; }
+  .pop { animation: pop .5s cubic-bezier(.2, 1.6, .4, 1); }
+  @keyframes pop { 0% { transform: scale(0) rotate(-30deg); } 100% { transform: scale(1) rotate(0); } }
+
+  /* barra de progreso (puntos, niveles) */
+  .barra-sim { height: 14px; border-radius: 8px; background: rgba(255, 255, 255, .6); overflow: hidden; }
+  .barra-sim i { display: block; height: 100%; width: 0; border-radius: 8px; background: linear-gradient(90deg, var(--coral), #ff8a5c); transition: width .7s cubic-bezier(.2, .9, .3, 1); }
+  .marcas { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; margin-top: 6px; opacity: .8; }
+  .sumado { position: absolute !important; right: 20px; top: 92px; font: 800 20px/1 "Manrope", sans-serif; color: var(--coral); pointer-events: none; animation: sube 1.1s ease-out forwards; }
+  @keyframes sube { 0% { opacity: 0; transform: translateY(10px) scale(.8); } 20% { opacity: 1; transform: translateY(0) scale(1.1); } 100% { opacity: 0; transform: translateY(-36px) scale(1); } }
+
+  /* niveles: la tarjeta cambia de metal */
+  .sim-card.bronce { background: linear-gradient(135deg, #f3d7bf, #d9a77c); color: #5b3416; }
+  .sim-card.plata { background: linear-gradient(135deg, #f1f4f8, #b8c2cf); color: #253041; }
+  .sim-card.oro { background: linear-gradient(135deg, #fff1b8, #e8b93a); color: #5a3d00; }
+  .sim-brillo { position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .75) 50%, transparent 70%); transform: translateX(-120%); pointer-events: none; }
+  .sim-card { position: relative; }
+  .brilla .sim-brillo { animation: brillo .9s ease-out; }
+  @keyframes brillo { to { transform: translateX(120%); } }
+
+  /* cashback */
+  .mov { display: grid; gap: 6px; }
+  .mov p { display: flex; justify-content: space-between; font-size: 12px; background: rgba(255, 255, 255, .7); border-radius: 8px; padding: 6px 8px; }
+  .mov p b { color: #15803d; }
+  .mov p.nuevo { animation: entra .45s cubic-bezier(.2, 1.3, .4, 1); }
+  @keyframes entra { from { opacity: 0; transform: translateY(-10px); } }
+
+  /* pases */
+  .p-grilla { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .p-ticket { height: 34px; border-radius: 6px; background: #fff; border: 1.5px solid rgba(107, 58, 31, .25); display: grid; place-items: center; transition: opacity .4s ease, transform .4s ease; }
+  .p-ticket svg { width: 16px; height: 16px; }
+  .p-ticket.usado { opacity: .2; transform: scale(.85) rotate(-6deg); }
+
+  .bump { animation: bump .45s ease; }
+  @keyframes bump { 30% { transform: translateY(-4px) scale(1.02); } }
+
+  /* la notificación que baja */
+  .sim-noti { position: absolute !important; left: 22px; right: 22px; top: 24px; z-index: 3; display: grid; grid-template-columns: 30px 1fr; gap: 8px; align-items: center; background: rgba(255, 255, 255, .95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 14px; padding: 9px 11px; box-shadow: 0 10px 24px rgba(15, 23, 42, .18); font-size: 12px; line-height: 1.3; color: #111827; opacity: 0; transform: translateY(-16px) scale(.96); transition: opacity .3s ease, transform .35s cubic-bezier(.2, 1.3, .4, 1); pointer-events: none; }
+  .sim-noti.ve { opacity: 1; transform: none; }
+  .sim-noti b { display: block; font-size: 10px; color: var(--muted); font-weight: 600; }
+  .sim-noti .mini { width: 30px; height: 30px; border-radius: 8px; background: var(--coral); color: #fff; display: grid; place-items: center; }
+  .sim-noti .mini svg { width: 16px; height: 16px; }
+  .sim-confeti { position: absolute !important; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4; border-radius: 42px; }
+
+  .sim-accion { min-width: 240px; font-size: 17px; }
+  .sim-accion:active { transform: scale(.97); }
+  .sim-pie { min-height: 24px; color: var(--ink2); font-size: 15px; text-align: center; max-width: 340px; }
+  .sim-dato { margin-top: 28px; padding: 18px 20px; border-radius: 16px; background: var(--soft-coral); border: 1px solid #ffd2c2; color: var(--ink2); font-size: 15px; max-width: 860px; }
+  .sim-dato b { color: var(--ink); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pop, .bump, .sumado, .mov p.nuevo, .brilla .sim-brillo { animation: none !important; }
+    .barra-sim i, .sim-noti, .sim-card, .p-ticket { transition: none !important; }
+  }
+  @media (max-width: 900px) {
+    .rubros { grid-template-columns: 1fr 1fr; }
+    .sim { grid-template-columns: 1fr; }
+    .sim-tabs { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .rubros { grid-template-columns: 1fr; }
+    .no-va { grid-template-columns: 1fr; }
+    .sim-tabs { grid-template-columns: 1fr; }
+    .sim-tab { padding: 10px 12px; }
+    .sim-tab small { display: none; }
+    .sim-accion { width: 100%; }
+  }
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="taza" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M6 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/></symbol>
+  <symbol id="estrella" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.53 3.1a.53.53 0 0 1 .94 0l2.31 4.68a2.12 2.12 0 0 0 1.6 1.16l5.16.76a.53.53 0 0 1 .3.9l-3.74 3.64a2.12 2.12 0 0 0-.61 1.88l.88 5.14a.53.53 0 0 1-.77.56l-4.62-2.43a2.12 2.12 0 0 0-1.97 0L6.4 21.85a.53.53 0 0 1-.77-.56l.88-5.14a2.12 2.12 0 0 0-.61-1.88L2.16 10.63a.53.53 0 0 1 .3-.9l5.16-.76a2.12 2.12 0 0 0 1.6-1.16z"/></symbol>
   <symbol id="tilde" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
 </svg>
 <div class="wrap">
@@ -348,7 +477,8 @@
       <span>recompensal<b>o</b></span>
     </a>
     <nav class="nav" aria-label="Secciones">
-      <a href="#vende">Qué hace</a>
+      <a href="#para-quien">Para quién</a>
+      <a href="#programas">Probalo</a>
       <a href="#planes">Planes</a>
       <a class="btn btn-1" href="#contacto">Pedir una demo</a>
     </nav>
@@ -406,6 +536,55 @@
   </main>
 </div>
 
+<section id="para-quien">
+  <div class="wrap">
+    <div class="fi">
+      <span class="eyebrow">Para quién es</span>
+      <h2>Para los negocios donde la gente vuelve</h2>
+      <p class="lead">Si tu cliente puede volver la semana que viene, Recompensalo hace que vuelva a vos y no al de enfrente. Tocá tu rubro y mirá cómo funcionaría.</p>
+    </div>
+    <div class="rubros fi" id="rubros"></div>
+    <div class="no-va fi">
+      <b>Dónde no conviene</b>
+      <p>Si tu cliente compra una vez cada muchos años (inmobiliarias, concesionarias, mueblerías), no hay visita que premiar. Te lo decimos antes de venderte nada.</p>
+    </div>
+  </div>
+</section>
+
+<section id="perdes" class="banda">
+  <div class="wrap dos">
+    <div class="fi">
+      <span class="eyebrow">Lo que no se ve en la caja</span>
+      <h2>Si no le das un motivo para volver, se lo da otro</h2>
+      <p class="lead">El cliente que deja de venir no avisa ni se queja. Un día prueba la cafetería de enfrente, la peluquería que le regala el sexto corte o el gimnasio que le avisa que le falta una clase para el premio. Y se queda ahí.</p>
+      <p class="lead perdes-cierre">No lo ves en la caja de hoy: lo ves en la de los próximos meses.</p>
+    </div>
+    <div class="calc fi" aria-labelledby="calc-titulo">
+      <h3 id="calc-titulo">¿Cuánto se lleva cada cliente que se va?</h3>
+      <label class="calc-campo">
+        <span>Lo que gasta en cada visita</span>
+        <output id="o-ticket"></output>
+        <input type="range" id="c-ticket" min="2000" max="100000" step="1000" value="12000">
+      </label>
+      <label class="calc-campo">
+        <span>Veces que viene por mes</span>
+        <output id="o-visitas"></output>
+        <input type="range" id="c-visitas" min="0.5" max="8" step="0.5" value="2">
+      </label>
+      <label class="calc-campo">
+        <span>Clientes que dejan de venir por mes</span>
+        <output id="o-perdidos"></output>
+        <input type="range" id="c-perdidos" min="1" max="60" step="1" value="10">
+      </label>
+      <div class="calc-res" aria-live="polite">
+        <p>Cada uno te dejaba <b id="r-uno"></b> por año.</p>
+        <p class="calc-grande"><strong id="r-total"></strong><span>por año que pasan a la caja de otro, al cabo de un año.</span></p>
+      </div>
+      <small>Con tus números: los cambiás y la cuenta se rehace. No es una promesa de cuánto vas a recuperar, es lo que hoy se va sin que se vea.</small>
+    </div>
+  </div>
+</section>
+
 <section id="app">
   <div class="wrap">
     <div class="fi">
@@ -461,20 +640,41 @@
   </div>
 </section>
 
-<section class="banda">
+<section id="programas" class="banda">
   <div class="wrap">
     <div class="fi">
-      <span class="eyebrow">Como mejor te sirva</span>
-      <h2>Elegís cómo premiar</h2>
-      <p class="lead">Cinco tipos de programa. Lo podés cambiar cuando quieras y la tarjeta de cada cliente se actualiza sola.</p>
+      <span class="eyebrow">Probalo acá</span>
+      <h2>Elegí cómo premiar y tocá el botón</h2>
+      <p class="lead">Cinco tipos de programa. Elegí uno y cargá visitas como lo haría tu equipo: así lo ve tu cliente en su celular.</p>
     </div>
-    <div class="progs">
-      <div class="prog fi"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-3-3c-1.66 0-3 1-3 3s1 2 1 3.5V13"/></svg></i><b>Sellos</b><span>«10 visitas, la 11 gratis». El más simple de entender.</span></div>
-      <div class="prog fi"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></i><b>Puntos</b><span>Cada compra suma puntos que se canjean por premios.</span></div>
-      <div class="prog fi"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></i><b>Niveles</b><span>Cuanto más viene, más descuento fijo tiene (Bronce, Plata, Oro).</span></div>
-      <div class="prog fi"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></i><b>Cashback</b><span>Un % de cada compra vuelve como saldo en pesos para la próxima.</span></div>
-      <div class="prog destacado fi"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></i><b>Pases prepagos</b><span>Packs de visitas («5 clases»): la plata entra hoy y cada visita descuenta un uso.</span></div>
+    <div class="sim fi">
+      <div class="sim-tabs" role="tablist" aria-label="Tipo de programa">
+        <button class="sim-tab" role="tab" data-p="sellos" aria-selected="true"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-3-3c-1.66 0-3 1-3 3s1 2 1 3.5V13"/></svg></i><span><b>Sellos</b><small>«8 visitas, un premio». El más simple de entender.</small></span></button>
+        <button class="sim-tab" role="tab" data-p="puntos" aria-selected="false"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></i><span><b>Puntos</b><small>Cada compra suma puntos para canjear.</small></span></button>
+        <button class="sim-tab" role="tab" data-p="niveles" aria-selected="false"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></i><span><b>Niveles</b><small>Bronce, Plata, Oro: más viene, más descuento.</small></span></button>
+        <button class="sim-tab" role="tab" data-p="cashback" aria-selected="false"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></i><span><b>Cashback</b><small>Un % de cada compra vuelve como saldo.</small></span></button>
+        <button class="sim-tab" role="tab" data-p="pases" aria-selected="false"><i class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></i><span><b>Pases prepagos</b><small>Packs de visitas: la plata entra hoy.</small></span></button>
+      </div>
+
+      <div class="sim-escena">
+        <div class="sim-tel" id="sim-tel">
+          <div class="sim-noti" id="sim-noti" aria-hidden="true"><span class="mini"><svg><use href="#estrella"/></svg></span><div><b id="sim-noti-de">CAFÉ MOLINO · ahora</b><span id="sim-noti-txt"></span></div></div>
+          <p class="titulo-wallet">Wallet</p>
+          <div class="sim-card" id="sim-card">
+            <div class="sim-cab"><span class="sim-marca"><svg aria-hidden="true"><use href="#taza" id="sim-ico"/></svg><span id="sim-negocio">CAFÉ MOLINO</span></span><small>Tarjeta de beneficios</small></div>
+            <p class="pase-et" id="sim-et">Sellos</p>
+            <p class="sim-valor" id="sim-valor">2 / 8</p>
+            <div class="sim-vis" id="sim-vis"></div>
+            <p class="sim-falta" id="sim-falta"></p>
+            <i class="sim-brillo" aria-hidden="true"></i>
+          </div>
+          <canvas class="sim-confeti" id="sim-confeti" aria-hidden="true"></canvas>
+        </div>
+        <button class="btn btn-1 sim-accion" id="sim-accion" type="button">Sumar una visita</button>
+        <p class="sim-pie" id="sim-pie" aria-live="polite"></p>
+      </div>
     </div>
+    <p class="sim-dato fi"><b>¿Por qué arranca con 2 sellos de regalo?</b> En un estudio con un lavadero de autos, la tarjeta que regalaba 2 sellos de arranque se completó casi el doble de veces que la que arrancaba vacía: 34 % contra 19 % (Nunes y Drèze, 2006). Cuanto más cerca se ve el premio, más ganas de llegar. Recompensalo lo trae de fábrica.</p>
   </div>
 </section>
 
@@ -630,8 +830,8 @@
   <div class="wrap">
     <div class="fi">
       <span class="eyebrow">En el mostrador</span>
-      <h2>Cargar una visita es un toque</h2>
-      <p class="lead">Quien atiende toca el botón grande del celular, escanea el QR del cliente y listo: la tarjeta se actualiza sola en su Wallet. Si el cliente es nuevo, se suma ahí mismo con el QR o el sticker del mostrador.</p>
+      <h2>Funciona con el celular que ya está en el mostrador</h2>
+      <p class="lead">Sin lector, sin computadora y sin una caja nueva. Quien atiende escanea el QR de la tarjeta con su celular y el cliente ve el sello nuevo en su Wallet antes de guardar el teléfono. Si es la primera vez que viene, se suma ahí mismo con el QR del mostrador.</p>
     </div>
   </div>
 </section>
@@ -869,6 +1069,254 @@
     function init() { var obs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { start(); obs.disconnect(); } }); }, { threshold: THR }); obs.observe(scene); }
     if (logo.complete) { init(); } else { logo.onload = init; logo.onerror = init; setTimeout(init, 400); }
   }, 100);
+</script>
+<script>
+(function () {
+  var QUIETO = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (id) { return document.getElementById(id); };
+  var pesos = function (n) { return "$ " + Math.round(n).toLocaleString("es-AR"); };
+
+  /* ---------------- La calculadora de lo que se va ---------------- */
+  function calcular() {
+    var t = +$("c-ticket").value, v = +$("c-visitas").value, p = +$("c-perdidos").value;
+    $("o-ticket").textContent = pesos(t);
+    $("o-visitas").textContent = String(v).replace(".", ",");
+    $("o-perdidos").textContent = p;
+    var uno = t * v * 12;
+    $("r-uno").textContent = pesos(uno);
+    $("r-total").textContent = pesos(uno * p * 12);
+  }
+  ["c-ticket", "c-visitas", "c-perdidos"].forEach(function (id) { $(id).addEventListener("input", calcular); });
+  calcular();
+
+  /* ---------------- Los rubros ---------------- */
+  // [nombre, programa, negocio en la tarjeta, ejemplo de premio, ícono]
+  var RUBROS = [
+    ["Belleza y cuidado personal", [
+      ["Cejas y pestañas", "sellos", "TU BROW BAR", "5 sellos: 10% de descuento"],
+      ["Peluquerías", "puntos", "TU PELUQUERÍA", "un brushing de regalo"],
+      ["Barberías", "sellos", "TU BARBERÍA", "el corte de regalo"],
+      ["Uñas", "sellos", "TU SALÓN DE UÑAS", "un kapping de regalo"],
+      ["Depilación", "pases", "TU CENTRO", "pack de 10 sesiones"],
+      ["Spa y masajes", "niveles", "TU SPA", "nivel Oro: 15% siempre"]
+    ]],
+    ["Gastronomía", [
+      ["Cafeterías", "sellos", "CAFÉ MOLINO", "un café de regalo", "taza"],
+      ["Heladerías", "sellos", "TU HELADERÍA", "un cuarto kilo de regalo"],
+      ["Panaderías", "cashback", "TU PANADERÍA", "5% de vuelta en saldo"],
+      ["Hamburgueserías y pizzerías", "puntos", "TU LOCAL", "unas papas grandes de regalo"],
+      ["Restaurantes", "niveles", "TU RESTAURANTE", "nivel Plata: el postre de la casa"]
+    ]],
+    ["Deporte y bienestar", [
+      ["Gimnasios", "niveles", "TU GIMNASIO", "nivel Oro: una semana gratis"],
+      ["Yoga, pilates y danza", "pases", "TU ESTUDIO", "pack de 10 clases"],
+      ["Kinesiología y estética", "pases", "TU CONSULTORIO", "pack de 10 sesiones"]
+    ]],
+    ["Mascotas", [
+      ["Peluquería canina", "sellos", "TU PELUQUERÍA CANINA", "un baño de regalo"],
+      ["Pet shops y veterinarias", "cashback", "TU PET SHOP", "5% de vuelta en alimento"]
+    ]],
+    ["Comercios", [
+      ["Dietéticas y almacenes", "cashback", "TU DIETÉTICA", "5% de vuelta en saldo"],
+      ["Librerías", "puntos", "TU LIBRERÍA", "un cuaderno de regalo"],
+      ["Vinotecas", "niveles", "TU VINOTECA", "nivel Oro: 10% en toda la tienda"],
+      ["Ropa y calzado", "cashback", "TU TIENDA", "5% de vuelta para el próximo cambio"]
+    ]],
+    ["Servicios", [
+      ["Lavaderos de autos", "sellos", "TU LAVADERO", "un lavado de regalo"],
+      ["Lavanderías", "sellos", "TU LAVANDERÍA", "una carga de regalo"],
+      ["Talleres y gomerías", "niveles", "TU TALLER", "nivel Plata: 10% en mano de obra"]
+    ]]
+  ];
+  $("rubros").innerHTML = RUBROS.map(function (f, i) {
+    return "<div class='familia'><h3>" + f[0] + "</h3><div class='chips'>" + f[1].map(function (r, j) {
+      return "<button class='chip' type='button' aria-pressed='false' data-r='" + i + "." + j + "'>" + r[0] + "</button>";
+    }).join("") + "</div></div>";
+  }).join("");
+
+  /* ---------------- El simulador ---------------- */
+  var negocio = { nombre: "CAFÉ MOLINO", icono: "taza", premio: null };
+  var prog = "sellos", n = 0, terminado = false;
+  var NIVELES = [["Bronce", 0, "5%"], ["Plata", 4, "10%"], ["Oro", 8, "15%"]];
+  var P = {
+    sellos: { et: "Sellos", accion: "Sumar una visita", inicio: 2, meta: 8, premio: "un café de regalo" },
+    puntos: { et: "Puntos", accion: "Cobrar $ 8.000", inicio: 0, meta: 4000, paso: 800, premio: "un café de regalo" },
+    niveles: { et: "Nivel", accion: "Sumar una visita", inicio: 1, meta: 8, premio: "nivel Oro: 15% siempre" },
+    cashback: { et: "Saldo a favor", accion: "Cobrar $ 9.000", inicio: 0, paso: 450, premio: "5% de vuelta en saldo" },
+    pases: { et: "Pack de 10", accion: "Usar una visita del pack", inicio: 10, meta: 0, premio: "pack de 10 visitas" }
+  };
+
+  var card = $("sim-card"), vis = $("sim-vis");
+  function premio() { return negocio.premio || P[prog].premio; }
+  function nivelDe(v) { var r = NIVELES[0]; NIVELES.forEach(function (x) { if (v >= x[1]) r = x; }); return r; }
+  function rehacer(fx) {
+    card.className = "sim-card";
+    $("sim-negocio").textContent = negocio.nombre;
+    $("sim-ico").setAttribute("href", "#" + negocio.icono);
+    $("sim-noti-de").textContent = negocio.nombre + " · ahora";
+    $("sim-et").textContent = P[prog].et;
+    $("sim-accion").textContent = terminado ? (prog === "pases" ? "Renovar el pack" : prog === "niveles" ? "Empezar de nuevo" : "Canjear y empezar de nuevo") : P[prog].accion;
+    var falta = "";
+    if (prog === "sellos") {
+      $("sim-valor").textContent = n + " / " + P.sellos.meta;
+      var h = "<div class='s-grilla'>";
+      for (var i = 0; i < P.sellos.meta; i++) {
+        var c = "s-sello" + (i < n ? " lleno" : "") + (i < P.sellos.inicio ? " regalo" : "") + (i === P.sellos.meta - 1 ? " premio" : "") + (fx && i === n - 1 ? " pop" : "");
+        h += "<span class='" + c + "'><svg><use href='#" + negocio.icono + "'/></svg></span>";
+      }
+      vis.innerHTML = h + "</div>";
+      var f = P.sellos.meta - n;
+      falta = f <= 0 ? "¡Completaste la tarjeta! Premio: " + premio() : (f === 1 ? "¡Te falta 1 sello para " : "Te faltan " + f + " sellos para ") + premio() + (f === 1 ? "!" : "");
+    } else if (prog === "puntos") {
+      contar($("sim-valor"), n, function (v) { return Math.round(v).toLocaleString("es-AR") + " pts"; });
+      vis.innerHTML = "<div class='barra-sim'><i></i></div><div class='marcas'><span>0</span><span>Premio: " + P.puntos.meta.toLocaleString("es-AR") + " pts</span></div>";
+      ancho(Math.min(100, n / P.puntos.meta * 100));
+      var fp = P.puntos.meta - n;
+      falta = fp <= 0 ? "¡Llegaste! Canjeá " + premio() : "Te faltan " + fp.toLocaleString("es-AR") + " pts para " + premio();
+    } else if (prog === "niveles") {
+      var nv = nivelDe(n), sig = NIVELES[NIVELES.indexOf(nv) + 1];
+      card.classList.add(nv[0] === "Bronce" ? "bronce" : nv[0] === "Plata" ? "plata" : "oro");
+      $("sim-valor").textContent = nv[0];
+      vis.innerHTML = "<div class='barra-sim'><i></i></div><div class='marcas'><span>Bronce</span><span>Plata</span><span>Oro</span></div><p class='sim-falta' style='min-height:0;margin-top:10px'>" + n + " visitas · " + nv[2] + " de descuento siempre</p>";
+      ancho(Math.min(100, n / P.niveles.meta * 100));
+      falta = sig ? "Te faltan " + (sig[1] - n) + " visitas para " + sig[0] + " (" + sig[2] + " siempre)" : "¡Nivel Oro! " + nv[2] + " de descuento en cada visita";
+    } else if (prog === "cashback") {
+      contar($("sim-valor"), n * P.cashback.paso, pesos);
+      var filas = "";
+      for (var k = Math.min(n, 3); k >= 1; k--) filas += "<p" + (fx && k === Math.min(n, 3) ? " class='nuevo'" : "") + "><span>Compra de $ 9.000</span><b>+ $ 450</b></p>";
+      vis.innerHTML = "<div class='mov'>" + (filas || "<p><span>Todavía no hay compras</span><span></span></p>") + "</div>";
+      falta = n === 0 ? "Cada compra le devuelve el 5% para la próxima" : "Lo usa en su próxima compra: " + pesos(n * P.cashback.paso) + " menos";
+    } else {
+      var quedan = n;
+      $("sim-valor").textContent = quedan + (quedan === 1 ? " visita" : " visitas");
+      var hp = "<div class='p-grilla'>";
+      for (var j = 0; j < 10; j++) hp += "<span class='p-ticket" + (j >= quedan ? " usado" : "") + "'><svg><use href='#" + negocio.icono + "'/></svg></span>";
+      vis.innerHTML = hp + "</div>";
+      falta = quedan === 0 ? "Se terminó el pack: renovarlo es un toque" : "Ya pagó el pack: cada visita descuenta una";
+    }
+    $("sim-falta").textContent = falta;
+  }
+  function ancho(p) {
+    var i = vis.querySelector(".barra-sim i");
+    requestAnimationFrame(function () { requestAnimationFrame(function () { i.style.width = p + "%"; }); });
+  }
+  var anterior = {}, vuelta = 0;
+  function contar(el, hasta, fmt) {
+    var desde = anterior[prog] || 0; anterior[prog] = hasta;
+    if (QUIETO || desde === hasta) { el.textContent = fmt(hasta); return; }
+    // Si se toca rápido, la cuenta nueva corta la anterior: si no, terminan
+    // pisándose y el número queda en uno viejo.
+    var yo = ++vuelta, t0 = performance.now();
+    (function paso(t) {
+      if (yo !== vuelta) return;
+      var x = Math.min(1, (t - t0) / 650), e = 1 - Math.pow(1 - x, 3);
+      el.textContent = fmt(desde + (hasta - desde) * e);
+      if (x < 1) requestAnimationFrame(paso);
+    })(t0);
+    // Respaldo: con la pestaña en segundo plano el navegador frena la animación.
+    setTimeout(function () { if (yo === vuelta) el.textContent = fmt(hasta); }, 700);
+  }
+  var tNoti;
+  function avisar(txt) {
+    $("sim-noti-txt").textContent = txt;
+    var el = $("sim-noti"); el.classList.add("ve");
+    clearTimeout(tNoti); tNoti = setTimeout(function () { el.classList.remove("ve"); }, 2600);
+  }
+  function golpe(cls) { card.classList.remove(cls); void card.offsetWidth; card.classList.add(cls); }
+  function flotar(txt) {
+    if (QUIETO) return;
+    var s = document.createElement("span"); s.className = "sumado"; s.textContent = txt;
+    $("sim-tel").appendChild(s); setTimeout(function () { s.remove(); }, 1100);
+  }
+
+  function elegir(p, sinReset) {
+    prog = p; terminado = false;
+    if (!sinReset) { n = P[p].inicio; anterior[p] = n * (p === "cashback" ? P.cashback.paso : 1); }
+    document.querySelectorAll(".sim-tab").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.p === p)); b.tabIndex = b.dataset.p === p ? 0 : -1; });
+    rehacer(false);
+    $("sim-pie").textContent = p === "sellos" ? "Arranca con 2 sellos de regalo, como le llega a cada cliente nuevo." : "";
+  }
+
+  $("sim-accion").addEventListener("click", function () {
+    if (terminado) { confeti(); elegir(prog); avisar(prog === "pases" ? "Pack renovado: tenés 10 visitas más." : "¡Disfrutá tu premio! Empezaste una tarjeta nueva."); return; }
+    var antes = n;
+    if (prog === "sellos") n++;
+    else if (prog === "puntos") { n += P.puntos.paso; flotar("+ 800 pts"); }
+    else if (prog === "niveles") n++;
+    else if (prog === "cashback") { n++; flotar("+ $ 450"); }
+    else n--;
+    rehacer(true);
+    golpe("bump");
+    if (prog === "sellos") {
+      var f = P.sellos.meta - n;
+      if (f <= 0) { terminado = true; confeti(); avisar("¡Completaste tu tarjeta! Pasá a buscar " + premio() + "."); }
+      else avisar(f === 1 ? "¡Te falta 1 sello para " + premio() + "!" : "Sumaste un sello. Te faltan " + f + ".");
+    } else if (prog === "puntos") {
+      if (n >= P.puntos.meta) { terminado = true; confeti(); avisar("¡Llegaste a " + P.puntos.meta.toLocaleString("es-AR") + " puntos! Ya podés canjear " + premio() + "."); }
+      else avisar("Sumaste 800 puntos por tu compra.");
+    } else if (prog === "niveles") {
+      if (nivelDe(n) !== nivelDe(antes)) {
+        golpe("brilla"); confeti();
+        var nv = nivelDe(n);
+        avisar("¡Subiste a " + nv[0] + "! Ahora tenés " + nv[2] + " de descuento siempre.");
+        if (nv[0] === "Oro") terminado = true;
+      } else avisar("Visita sumada. Seguís subiendo.");
+    } else if (prog === "cashback") {
+      avisar("Te volvieron $ 450 de tu compra. Saldo: " + pesos(n * P.cashback.paso) + ".");
+      if (n === 5) confeti();
+    } else {
+      if (n <= 0) { terminado = true; avisar("Usaste tu última visita del pack. ¿Lo renovás?"); }
+      else avisar("Usaste una visita. Te quedan " + n + ".");
+    }
+    $("sim-accion").textContent = terminado ? (prog === "pases" ? "Renovar el pack" : prog === "niveles" ? "Empezar de nuevo" : "Canjear y empezar de nuevo") : P[prog].accion;
+  });
+
+  var tabs = [].slice.call(document.querySelectorAll(".sim-tab"));
+  tabs.forEach(function (b, i) {
+    b.addEventListener("click", function () { elegir(b.dataset.p); });
+    b.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      e.preventDefault(); var o = tabs[(i + d + tabs.length) % tabs.length]; o.focus(); elegir(o.dataset.p);
+    });
+  });
+
+  $("rubros").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    var ij = b.dataset.r.split("."), r = RUBROS[+ij[0]][1][+ij[1]];
+    document.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    negocio = { nombre: r[2], icono: r[4] || "estrella", premio: r[3] };
+    elegir(r[1]);
+    $("sim-pie").textContent = r[0] + ": programa de " + P[r[1]].et.toLowerCase() + ", con " + r[3] + ".";
+    $("programas").scrollIntoView({ behavior: QUIETO ? "auto" : "smooth", block: "start" });
+  });
+
+  /* La tarjeta se inclina con el mouse, como si la tuvieras en la mano */
+  if (!QUIETO && matchMedia("(hover: hover)").matches) {
+    var tel = $("sim-tel");
+    tel.addEventListener("pointermove", function (e) {
+      var r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = "rotateY(" + (x * 12) + "deg) rotateX(" + (-y * 10) + "deg)";
+    });
+    tel.addEventListener("pointerleave", function () { card.style.transform = ""; });
+  }
+
+  /* Confeti en el celular cuando llega el premio */
+  function confeti() {
+    if (QUIETO) return;
+    var cv = $("sim-confeti"), ctx = cv.getContext("2d"), w = cv.width = cv.offsetWidth, h = cv.height = cv.offsetHeight;
+    var col = ["#ff5c28", "#2563eb", "#2f8a7c", "#fbbf24", "#ffffff"], ps = [];
+    for (var i = 0; i < 90; i++) ps.push({ x: w / 2, y: h * .42, vx: (Math.random() - .5) * 9, vy: -Math.random() * 9 - 3, s: Math.random() * 6 + 4, r: Math.random() * 6, vr: (Math.random() - .5) * .3, c: col[i % col.length] });
+    var t0 = performance.now();
+    (function cuadro(t) {
+      ctx.clearRect(0, 0, w, h);
+      ps.forEach(function (p) { p.vy += .32; p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); ctx.restore(); });
+      if (t - t0 < 1800) requestAnimationFrame(cuadro); else ctx.clearRect(0, 0, w, h);
+    })(t0);
+  }
+
+  elegir("sellos");
+})();
 </script>
 </body>
 </html>
