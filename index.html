@@ -469,6 +469,41 @@
     .sello-baja, .sello-tinta, .sello-chispa { animation: none; }
     .sello-chispa { opacity: 0; }
   }
+
+  /* ---- El formulario de demo ---- */
+  .demo { margin-top: 28px; display: grid; gap: 22px; scroll-margin-top: 24px; }
+  .demo-cab .lead { max-width: 640px; }
+  .demo-form, .demo-ok { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 36px 40px; box-shadow: 0 24px 50px rgba(15, 23, 42, .07); }
+  .demo-form { display: grid; gap: 20px; }
+  .demo-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+  .campo { display: grid; gap: 8px; }
+  .campo > span { font: 700 16px/1.2 "Manrope", sans-serif; color: var(--ink); }
+  .campo em { font: 400 15px "Fira Sans", sans-serif; color: var(--muted); font-style: normal; }
+  .campo input, .campo textarea { width: 100%; font: 400 17px/1.4 "Fira Sans", sans-serif; color: var(--ink); background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 16px 18px; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  .campo textarea { resize: vertical; min-height: 130px; }
+  .campo input::placeholder, .campo textarea::placeholder { color: #94a3b8; }
+  .campo input:focus, .campo textarea:focus { outline: none; background: #fff; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37, 99, 235, .15); }
+  .campo .mal { border-color: #dc2626; background: #fef2f2; }
+  .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .demo-error { color: #b91c1c; font-weight: 600; font-size: 15px; }
+  .demo-acciones { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .demo-boton { min-height: 56px; padding: 14px 30px; border-radius: 999px; font-size: 18px; border: 0; }
+  .demo-boton svg { transition: transform .2s ease; }
+  .demo-boton:hover svg { transform: translateX(3px); }
+  .demo-boton[disabled] { opacity: .7; cursor: progress; }
+  .demo-fino { color: var(--muted); font-size: 16px; }
+  .demo-ok { text-align: center; display: grid; justify-items: center; gap: 8px; }
+  .demo-ok[hidden], .demo-form[hidden] { display: none; }
+  .demo-ok-ico { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--soft-teal); color: var(--teal); margin-bottom: 6px; animation: pop .5s cubic-bezier(.2, 1.6, .4, 1); }
+  .demo-ok-ico svg { width: 28px; height: 28px; }
+  .demo-ok-tit { font: 800 24px/1.2 "Manrope", sans-serif; }
+  .demo-ok p:not(.demo-ok-tit) { color: var(--ink2); }
+  .demo-otra { margin-top: 8px; background: none; border: 0; color: var(--blue); font: 600 15px "Fira Sans", sans-serif; cursor: pointer; text-decoration: underline; }
+  @media (max-width: 640px) {
+    .demo-form, .demo-ok { padding: 24px 18px; border-radius: 22px; }
+    .demo-fila { grid-template-columns: 1fr; }
+    .demo-boton { width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -499,7 +534,7 @@
       <a href="#para-quien">Para quién</a>
       <a href="#programas">Probalo</a>
       <a href="#planes">Planes</a>
-      <a class="btn btn-1" href="#contacto">Pedir una demo</a>
+      <a class="btn btn-1" href="#demo">Pedir una demo</a>
     </nav>
   </header>
 
@@ -510,7 +545,7 @@
         <h1>Que tus clientes vuelvan más. <em>Sin bajar ninguna app.</em></h1>
         <p class="lead">La tarjeta de beneficios de tu negocio vive en el Wallet del celular de cada cliente, al lado de sus tarjetas del banco. Se suman en un minuto escaneando un QR y cada visita suma sola.</p>
         <div class="btns">
-          <a class="btn btn-1" href="#contacto">
+          <a class="btn btn-1" href="#demo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
             Pedir una demo
           </a>
@@ -885,7 +920,7 @@
           <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>En el iPhone, la tarjeta aparece sola cerca del local</span></li>
           <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Panel con la lista de clientes y su historial</span></li>
         </ul>
-        <a class="btn btn-2" href="mailto:ventas@mflowsuite.com?subject=Recompensalo%20-%20Plan%20Esencial">Consultar</a>
+        <a class="btn btn-2" href="#demo" data-plan="Esencial">Consultar</a>
       </article>
       <article class="plan medio fi">
         <span class="etiqueta">El más elegido</span>
@@ -902,7 +937,7 @@
           <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Grupos de clientes y tareas sugeridas en el inicio</span></li>
           <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Usuarios para el equipo, por sucursal</span></li>
         </ul>
-        <a class="btn btn-1" href="mailto:ventas@mflowsuite.com?subject=Recompensalo%20-%20Plan%20Crecimiento">Consultar</a>
+        <a class="btn btn-1" href="#demo" data-plan="Crecimiento">Consultar</a>
       </article>
       <article class="plan fi">
         <h3>Cadena</h3>
@@ -916,7 +951,7 @@
           <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Capacitación al equipo por videollamada</span></li>
           <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Soporte prioritario por WhatsApp</span></li>
         </ul>
-        <a class="btn btn-2" href="mailto:ventas@mflowsuite.com?subject=Recompensalo%20-%20Plan%20Cadena">Consultar</a>
+        <a class="btn btn-2" href="#demo" data-plan="Cadena">Consultar</a>
       </article>
     </div>
     <p class="nota-planes fi">Todos los planes incluyen la puesta en marcha con tu marca. ¿Necesitás una sola función de un plan más grande? Se puede sumar aparte.</p>
@@ -935,12 +970,35 @@
       <div class="paso fi"><b>3</b><h3>Pasamos a tus clientes</h3><p>Si tu sistema actual nos deja exportarlos, importamos los clientes que ya tenés y les avisamos que los espera su tarjeta nueva.</p></div>
     </div>
 
-    <div class="cierre fi">
-      <h2>Mirala con tu marca</h2>
-      <p>Te mostramos cómo se vería la tarjeta de tu negocio en el celular de tus clientes. Sin compromiso.</p>
-      <div class="btns">
-        <a class="btn btn-1" href="mailto:ventas@mflowsuite.com?subject=Quiero%20una%20demo%20de%20Recompensalo">Pedir una demo</a>
-        <a class="btn btn-2" href="#planes">Ver los planes</a>
+    <div class="demo fi" id="demo">
+      <div class="demo-cab">
+        <span class="eyebrow">Solicitar demo</span>
+        <h2>Mirala con tu marca</h2>
+        <p class="lead">Contanos de tu negocio y te mostramos la tarjeta con tu logo, en el celular, en una llamada de 20 minutos. Sin compromiso.</p>
+      </div>
+      <form class="demo-form" id="demo-form" novalidate>
+        <div class="demo-fila">
+          <label class="campo"><span>Tu nombre</span><input name="nombre" required autocomplete="name" placeholder="Ana"></label>
+          <label class="campo"><span>Tu negocio</span><input name="negocio" required autocomplete="organization" placeholder="Cafetería, peluquería, gimnasio…"></label>
+        </div>
+        <div class="demo-fila">
+          <label class="campo"><span>WhatsApp</span><input name="whatsapp" required inputmode="tel" autocomplete="tel" placeholder="+54 9 11 …"></label>
+          <label class="campo"><span>Email</span><input name="email" required type="email" autocomplete="email" placeholder="vos@tunegocio.com"></label>
+        </div>
+        <label class="campo"><span>¿Cómo premiás hoy a tus clientes? <em>(opcional)</em></span><textarea name="mensaje" rows="4" placeholder="Ej.: tenemos la tarjetita de cartón, 2 locales y unos 300 clientes por mes."></textarea></label>
+        <input type="hidden" name="plan" id="demo-plan">
+        <div class="trampa" aria-hidden="true"><label>Sitio web <input name="empresa_web" tabindex="-1" autocomplete="off"></label></div>
+        <p class="demo-error" id="demo-error" role="alert" hidden></p>
+        <div class="demo-acciones">
+          <button class="btn btn-1 demo-boton" type="submit" id="demo-boton"><span>Solicitar demo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+          <span class="demo-fino">Respondemos el mismo día, de lunes a viernes.</span>
+        </div>
+      </form>
+      <div class="demo-ok" id="demo-ok" role="status" hidden>
+        <span class="demo-ok-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p class="demo-ok-tit">Listo. Te escribimos hoy.</p>
+        <p>Coordinamos por WhatsApp la demo con tu marca.</p>
+        <button class="demo-otra" type="button" id="demo-otra">Enviar otro mensaje</button>
       </div>
     </div>
   </div>
@@ -1289,6 +1347,48 @@
   }
 
   elegir("sellos");
+})();
+</script>
+<script>
+(function () {
+  // El formulario manda al Worker recompensalo-contacto (carpeta worker/):
+  // la web es estática y no tiene dónde recibir nada.
+  var URL_CONTACTO = "https://recompensalo-contacto.mflowsuite.workers.dev/api/contacto";
+  var f = document.getElementById("demo-form"), err = document.getElementById("demo-error"),
+      boton = document.getElementById("demo-boton"), ok = document.getElementById("demo-ok");
+  document.querySelectorAll("[data-plan]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      document.getElementById("demo-plan").value = a.dataset.plan;
+      var m = f.elements.mensaje;
+      if (!m.value.trim()) m.value = "Me interesa el plan " + a.dataset.plan + ".";
+    });
+  });
+  function fallo(msg, campo) {
+    err.textContent = msg; err.hidden = false;
+    if (campo && f.elements[campo]) { f.elements[campo].classList.add("mal"); f.elements[campo].focus(); }
+  }
+  f.addEventListener("input", function (e) { e.target.classList.remove("mal"); });
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    [].forEach.call(f.querySelectorAll(".mal"), function (x) { x.classList.remove("mal"); });
+    var nombres = { nombre: "tu nombre", negocio: "el nombre de tu negocio", whatsapp: "tu WhatsApp", email: "tu email" };
+    var falta = Object.keys(nombres).filter(function (n) { return !f.elements[n].value.trim(); })[0];
+    if (falta) return fallo("Completá " + nombres[falta] + ".", falta);
+    var datos = {};
+    new FormData(f).forEach(function (v, k) { datos[k] = v; });
+    var texto = boton.querySelector("span");
+    boton.disabled = true; texto.textContent = "Enviando…";
+    fetch(URL_CONTACTO, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(datos) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return { r: r, b: b }; }); })
+      .then(function (x) {
+        if (!x.r.ok) return fallo(x.b.error || "No se pudo enviar. Probá de nuevo.", x.b.campo);
+        f.reset(); f.hidden = true; ok.hidden = false;
+      })
+      .catch(function () { fallo("Sin conexión. Probá de nuevo en un momento."); })
+      .then(function () { boton.disabled = false; texto.textContent = "Solicitar demo"; });
+  });
+  document.getElementById("demo-otra").addEventListener("click", function () { ok.hidden = true; f.hidden = false; });
 })();
 </script>
 </body>
