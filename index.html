@@ -824,7 +824,7 @@
 <section class="banda franja">
   <div class="wrap franja-in fi">
     <div class="ico azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
-    <p><b>¿Ya usás Respondelo, nuestro chatbot?</b> Se conectan: por WhatsApp, Instagram o la web, tu cliente pregunta cuántos sellos tiene y le contesta con su tarjeta.</p>
+    <p><b>¿Ya usás Respondelo, nuestro chatbot?</b> Se pueden conectar: por WhatsApp, Instagram o la web, tu cliente pregunta cuántos sellos tiene y le contesta con su tarjeta. <a href="#demo" data-plan="Respondelo">Contactanos</a> para sumarlo.</p>
   </div>
 </section>
 
@@ -837,7 +837,6 @@
         <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Ranking de ubicaciones: visitas, clientes nuevos, cuántos vuelven y las opiniones.</span></li>
         <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Qué días y a qué hora viene más gente, para armar los turnos del equipo.</span></li>
         <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Cada persona del equipo ve lo suyo; vos ves todo.</span></li>
-        <li><svg aria-hidden="true"><use href="#tilde"/></svg><span>Le preguntás a ChatGPT o Claude «¿cómo anduvo el Centro este mes?» y te contesta con tus números.</span></li>
       </ul>
     </div>
     <div class="ranking fi" role="img" aria-label="Ejemplo de ranking de ubicaciones por visitas del mes">
@@ -1341,7 +1340,7 @@
     a.addEventListener("click", function () {
       document.getElementById("demo-plan").value = a.dataset.plan;
       var m = f.elements.mensaje;
-      if (!m.value.trim()) m.value = a.dataset.plan === "Más ubicaciones" ? "Tengo más de una ubicación." : "Me interesa el plan todo incluido.";
+      if (!m.value.trim()) m.value = { "Más ubicaciones": "Tengo más de una ubicación.", "Respondelo": "Uso Respondelo y quiero conectarlo con la tarjeta." }[a.dataset.plan] || "Me interesa el plan todo incluido.";
     });
   });
   function fallo(msg, campo) {
